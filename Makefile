@@ -12,6 +12,7 @@ all: lint test build
 
 build:
 	@echo "Building the binary..."
+	go mod download
 	$(ENVFLAGS) go build -a -tags netgo -ldflags="-w -s" -o build/bin/$(SRV) ./cmd/cli
 	@echo "$(SRV) is built in build/$(SRV)"
 	@echo "DONE!"
